@@ -3,17 +3,19 @@
 // write code here
 const list = document.querySelector('ul');
 
-function sortList(sort) {
-  const mas = Array.from(sort.querySelectorAll('li'));
+function sortList(ul) {
+  const mas = Array.from(ul.querySelectorAll('li'));
 
   mas.sort((a, b) => {
-    return Number(b.dataset.salary) - Number(a.dataset.salary);
+    return (
+      Number(b.dataset.salary.replace(/\D/g, '')) -
+      Number(a.dataset.salary.replace(/\D/g, ''))
+    );
   });
-
-  sort.innerHTML = '';
+  ul.innerHTML = '';
 
   mas.forEach((m) => {
-    list.appendChild(m);
+    ul.appendChild(m);
   });
 }
 
