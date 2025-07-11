@@ -21,6 +21,7 @@ function getEmployees(emp) {
   const items = emp.querySelectorAll('li');
 
   return Array.from(items).map((item) => ({
+    name: item.textContent.trim(),
     position: item.dataset.position,
     salary: item.dataset.salary,
     age: Number(item.dataset.age),
